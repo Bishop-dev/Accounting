@@ -40,4 +40,9 @@ public class SpendingRecordServiceImpl implements SpendingRecordService {
         return DalToApiTransformer.toApi(dal);
     }
 
+    @Override
+    public void delete(long recordId) {
+        spendingRecordRepository.delete(recordId);
+    }
+
 }

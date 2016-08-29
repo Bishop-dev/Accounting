@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -32,7 +33,18 @@ public class SpendingRecordController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public SimpleResponse<SpendingRecordApi> create(@RequestBody SpendingRecordApi record) {
+        record.setUserId(1);
         return new SimpleResponse<>(spendingRecordService.save(record));
     }
-    
+
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    public SimpleResponse<Boolean> delete(@RequestParam("id") long id) {
+        try {
+            spendingRecordService.delete(id);
+        } catch (Exception e) {
+            return new SimpleResponse<>(false);
+        }
+        return new SimpleResponse<>(true);
+    }
+
 }

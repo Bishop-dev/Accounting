@@ -13,4 +13,6 @@ public interface SpendingRecordService {
 
     SpendingRecordApi save(SpendingRecordApi record);
 
+    void delete(long recordId);
+
 }
