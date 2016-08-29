@@ -18,6 +18,24 @@ public class SpendingRecordDal extends AbstractPersistable<Long> {
     private Date date;
     private String title;
     private String currency;
+    private long userId;
+
+    public SpendingRecordDal() {
+    }
+
+    private SpendingRecordDal(BigDecimal price, Date date, String title, String currency,
+                              long userId) {
+        this.price = price;
+        this.date = date;
+        this.title = title;
+        this.currency = currency;
+        this.userId = userId;
+    }
+
+    public static SpendingRecordDal create(BigDecimal price, Date date, String title, String currency,
+                                    long userId) {
+        return new SpendingRecordDal(price, date, title, currency, userId);
+    }
 
     public BigDecimal getPrice() {
         return price;
@@ -49,5 +67,13 @@ public class SpendingRecordDal extends AbstractPersistable<Long> {
 
     public void setCurrency(String currency) {
         this.currency = currency;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 }

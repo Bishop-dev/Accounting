@@ -1,4 +1,4 @@
-package com.counter.spendings.controller;
+package com.counter.spendings.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
