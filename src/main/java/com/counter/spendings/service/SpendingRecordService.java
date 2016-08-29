@@ -11,4 +11,6 @@ public interface SpendingRecordService {
 
     PagedResult<SpendingRecordApi> list(PageableRequest request, long userId);
 
+    SpendingRecordApi save(SpendingRecordApi record);
+
 }

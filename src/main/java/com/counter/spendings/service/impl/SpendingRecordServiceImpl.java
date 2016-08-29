@@ -4,6 +4,7 @@ import com.counter.spendings.entity.api.SpendingRecordApi;
 import com.counter.spendings.entity.dal.SpendingRecordDal;
 import com.counter.spendings.repository.SpendingRecordRepository;
 import com.counter.spendings.service.SpendingRecordService;
+import com.counter.spendings.transformer.ApiToDalTransformer;
 import com.counter.spendings.transformer.DalToApiTransformer;
 import com.counter.spendings.transformer.PageableTransformer;
 import com.counter.spendings.web.request.PageableRequest;
@@ -31,6 +32,12 @@ public class SpendingRecordServiceImpl implements SpendingRecordService {
         Page<SpendingRecordDal> pageableResult = spendingRecordRepository.findAllByUserIdAndDateBetween(pageable, userId,
                 request.getStart(), request.getFinish());
         return PageableTransformer.toPagedResult(pageableResult, DalToApiTransformer::toApi);
+    }
+
+    @Override
+    public SpendingRecordApi save(SpendingRecordApi record) {
+        SpendingRecordDal dal = spendingRecordRepository.save(ApiToDalTransformer.toDal(record));
+        return DalToApiTransformer.toApi(dal);
     }
 
 }
