@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="hello">
+<head>
+
+    <title>Index Page</title>
+
+    <script type="text/javascript" src="js/lib/angular.min.js"></script>
+    <script type="text/javascript" src="js/lib/angular-resource.min.js"></script>
+    <script type="text/javascript" src="js/app/app.js"></script>
+
+</head>
+<body ng-app="hello">
+<div class="container">
+    <h1>Greeting</h1>
+    <div ng-controller="home">
+        <p>The ID is {{greeting.id}}</p>
+        <p>The content is {{greeting.content}}</p>
+    </div>
+</div>
+</body>
+</html>
