@@ -8,13 +8,13 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 /**
  * Created by Sashko on 8/28/16.
  */
-@Configuration
-@EnableWebSecurity
-public class SecurityConfig  extends WebSecurityConfigurerAdapter {
+//@Configuration
+//@EnableWebSecurity
+public class SecurityConfig { // extends WebSecurityConfigurerAdapter {
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/**").permitAll();
-    }
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.authorizeRequests().antMatchers("/**").permitAll();
+//    }
 
 }

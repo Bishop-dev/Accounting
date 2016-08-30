@@ -2,9 +2,6 @@ package com.counter.spendings.transformer;
 
 import com.counter.spendings.entity.api.SpendingRecordApi;
 import com.counter.spendings.entity.dal.SpendingRecordDal;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Collection;

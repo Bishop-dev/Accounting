@@ -6,6 +6,7 @@ import com.counter.spendings.web.request.PageableRequest;
 import com.counter.spendings.web.response.PagedResult;
 import com.counter.spendings.web.response.SimpleResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +31,7 @@ public class SpendingRecordController {
         return new SimpleResponse<>(spendingRecordService.list(pageRequest, userId));
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequestMapping(value = "/save", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public SimpleResponse<SpendingRecordApi> create(@RequestBody SpendingRecordApi record) {
         record.setUserId(1);
         return new SimpleResponse<>(spendingRecordService.save(record));

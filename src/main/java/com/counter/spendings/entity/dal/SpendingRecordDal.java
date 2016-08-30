@@ -4,7 +4,6 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -14,7 +13,7 @@ import java.util.Date;
 @Table(name = "spending")
 public class SpendingRecordDal extends AbstractPersistable<Long> {
 
-    private BigDecimal price;
+    private double price;
     private Date date;
     private String title;
     private String currency;
@@ -23,7 +22,7 @@ public class SpendingRecordDal extends AbstractPersistable<Long> {
     public SpendingRecordDal() {
     }
 
-    private SpendingRecordDal(BigDecimal price, Date date, String title, String currency,
+    private SpendingRecordDal(double price, Date date, String title, String currency,
                               long userId) {
         this.price = price;
         this.date = date;
@@ -32,16 +31,16 @@ public class SpendingRecordDal extends AbstractPersistable<Long> {
         this.userId = userId;
     }
 
-    public static SpendingRecordDal create(BigDecimal price, Date date, String title, String currency,
+    public static SpendingRecordDal create(double price, Date date, String title, String currency,
                                     long userId) {
         return new SpendingRecordDal(price, date, title, currency, userId);
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

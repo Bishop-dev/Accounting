@@ -1,14 +1,20 @@
 package com.counter.spendings.entity.api;
 
-import java.math.BigDecimal;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.Date;
 
 /**
  * Created by Sashko on 8/27/16.
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SpendingRecordApi {
 
-    private BigDecimal price;
+    private static final String DATETIME_FORMAT = "yyyy-MM-dd HH:mm:ss Z";
+
+    private double price;
+    @JsonFormat(shape = JsonFormat.Shape.NUMBER, pattern = DATETIME_FORMAT)
     private Date date;
     private String title;
     private String currency;
@@ -17,7 +23,7 @@ public class SpendingRecordApi {
     public SpendingRecordApi() {
     }
 
-    private SpendingRecordApi(BigDecimal price, Date date, String title, String currency,
+    private SpendingRecordApi(double price, Date date, String title, String currency,
                               long userId) {
         this.price = price;
         this.date = date;
@@ -26,16 +32,16 @@ public class SpendingRecordApi {
         this.userId = userId;
     }
 
-    public static SpendingRecordApi create(BigDecimal price, Date date, String title, String currency,
+    public static SpendingRecordApi create(double price, Date date, String title, String currency,
                                            long userId) {
         return new SpendingRecordApi(price, date, title, currency, userId);
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

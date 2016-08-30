@@ -1,0 +1,30 @@
+<div ng-controller="SpendingCreateCtrl as vmCreate">
+    <div>
+        <div>
+            <label for="spendingTitle">
+                Name
+            </label>
+        </div>
+        <div>
+            <input ng-model="vmCreate.spending.title"
+                   id="spendingTitle"
+                   name="spendingTitle"
+                   class="form-control"
+                   type="text"
+                   autocomplete="off"
+                   autofocus="true"/>
+        </div>
+    </div>
+    <div>
+        <div>
+            <label for="spendingPrice">
+                Price
+            </label>
+        </div>
+        <div>
+            <input id="spendingPrice" type="number" min="0" ng-model="vmCreate.spending.price"
+                   name="spendingPrice" step="0.01" required>
+        </div>
+    </div>
+    <button type="button" ng-click="vmCreate.save()">Save</button>
+</div>

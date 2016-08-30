@@ -1,21 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="hello">
+<html lang="en" ng-app="app">
 <head>
 
     <title>Index Page</title>
 
     <script type="text/javascript" src="js/lib/angular.min.js"></script>
     <script type="text/javascript" src="js/lib/angular-resource.min.js"></script>
+    <script type="text/javascript" src="js/lib/angular-route.min.js"></script>
     <script type="text/javascript" src="js/app/app.js"></script>
 
+    <script type="text/javascript" src="js/app/spendings/spendings.js"></script>
+    <script type="text/javascript" src="js/app/spendings/spending-service.js"></script>
+    <script type="text/javascript" src="js/app/spendings/spending-create-ctrl.js"></script>
+
 </head>
-<body ng-app="hello">
-<div class="container">
+<body>
+
+<div class="container" ng-controller="AppCtrl as vmApp">
     <h1>Greeting</h1>
-    <div ng-controller="home">
-        <p>The ID is {{greeting.id}}</p>
-        <p>The content is {{greeting.content}}</p>
+    <div>
+        <p>The ID is {{vmApp.id}}</p>
+        <p>The content is {{vmApp.content}}</p>
     </div>
 </div>
+
+<div class="ng-include: 'spendings/create-spending-block.html'"></div>
+
 </body>
 </html>
