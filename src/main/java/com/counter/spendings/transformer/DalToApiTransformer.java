@@ -20,6 +20,7 @@ public class DalToApiTransformer {
             return null;
         }
         return SpendingRecordApi.create(
+                dal.getId(),
                 dal.getPrice(),
                 dal.getDate(),
                 dal.getTitle(),

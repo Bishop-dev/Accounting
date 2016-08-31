@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
+
 /**
  * Created by Sashko on 8/27/16.
  */
@@ -34,6 +36,10 @@ public class SpendingRecordController {
     @RequestMapping(value = "/save", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public SimpleResponse<SpendingRecordApi> create(@RequestBody SpendingRecordApi record) {
         record.setUserId(1);
+        record.setCurrency("UAH");
+        if (record.getDate() == null) {
+            record.setDate(new Date());
+        }
         return new SimpleResponse<>(spendingRecordService.save(record));
     }
 

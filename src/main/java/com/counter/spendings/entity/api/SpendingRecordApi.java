@@ -11,8 +11,9 @@ import java.util.Date;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SpendingRecordApi {
 
-    private static final String DATETIME_FORMAT = "yyyy-MM-dd HH:mm:ss Z";
+    private static final String DATETIME_FORMAT = "MM/dd/yyyy";
 
+    private long id;
     private double price;
     @JsonFormat(shape = JsonFormat.Shape.NUMBER, pattern = DATETIME_FORMAT)
     private Date date;
@@ -23,8 +24,9 @@ public class SpendingRecordApi {
     public SpendingRecordApi() {
     }
 
-    private SpendingRecordApi(double price, Date date, String title, String currency,
+    private SpendingRecordApi(long id, double price, Date date, String title, String currency,
                               long userId) {
+        this.id = id;
         this.price = price;
         this.date = date;
         this.title = title;
@@ -32,9 +34,9 @@ public class SpendingRecordApi {
         this.userId = userId;
     }
 
-    public static SpendingRecordApi create(double price, Date date, String title, String currency,
+    public static SpendingRecordApi create(long id, double price, Date date, String title, String currency,
                                            long userId) {
-        return new SpendingRecordApi(price, date, title, currency, userId);
+        return new SpendingRecordApi(id, price, date, title, currency, userId);
     }
 
     public double getPrice() {
@@ -77,4 +79,11 @@ public class SpendingRecordApi {
         this.userId = userId;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 }

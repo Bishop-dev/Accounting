@@ -12,7 +12,7 @@ public class ApiToDalTransformer {
         if (api == null) {
             return null;
         }
-        return SpendingRecordDal.create(api.getPrice(), api.getDate(), api.getTitle(),
+        return SpendingRecordDal.create(api.getId(), api.getPrice(), api.getDate(), api.getTitle(),
                 api.getCurrency(), api.getUserId());
     }
 

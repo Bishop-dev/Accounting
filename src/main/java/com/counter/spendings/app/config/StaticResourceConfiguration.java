@@ -12,7 +12,8 @@ public class StaticResourceConfiguration extends WebMvcConfigurerAdapter {
 
     private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
             "classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/templates/",
-            "classpath:/templates/spendings","classpath:/static/", "classpath:/public/" };
+            "classpath:/templates/spendings","classpath:/static/", "classpath:/public/",
+            "classpath:/js/"};
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

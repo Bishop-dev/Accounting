@@ -22,8 +22,9 @@ public class SpendingRecordDal extends AbstractPersistable<Long> {
     public SpendingRecordDal() {
     }
 
-    private SpendingRecordDal(double price, Date date, String title, String currency,
+    private SpendingRecordDal(long id, double price, Date date, String title, String currency,
                               long userId) {
+        setId(id);
         this.price = price;
         this.date = date;
         this.title = title;
@@ -31,9 +32,9 @@ public class SpendingRecordDal extends AbstractPersistable<Long> {
         this.userId = userId;
     }
 
-    public static SpendingRecordDal create(double price, Date date, String title, String currency,
+    public static SpendingRecordDal create(long id, double price, Date date, String title, String currency,
                                     long userId) {
-        return new SpendingRecordDal(price, date, title, currency, userId);
+        return new SpendingRecordDal(id, price, date, title, currency, userId);
     }
 
     public double getPrice() {

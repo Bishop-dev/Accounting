@@ -26,5 +26,15 @@
                    name="spendingPrice" step="0.01" required>
         </div>
     </div>
+    <div>
+        <div>
+            <label for="spendingDate">
+                Date
+            </label>
+        </div>
+        <div>
+            <input type="text" id="spendingDate" ng-model="vmCreate.spending.date" name="spendingDate"> </div>
+        </div>
+    </div>
     <button type="button" ng-click="vmCreate.save()">Save</button>
 </div>
