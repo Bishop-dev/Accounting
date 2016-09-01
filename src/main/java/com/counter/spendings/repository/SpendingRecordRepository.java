@@ -12,6 +12,6 @@ import java.util.Date;
  */
 public interface SpendingRecordRepository extends CrudRepository<SpendingRecordDal, Long> {
 
-    Page<SpendingRecordDal> findAllByUserIdAndDateBetween(Pageable page, long userId, Date start, Date end);
+    Page<SpendingRecordDal> findAllByUserIdAndDateBetweenOrderByDateDesc(Pageable page, long userId, Date start, Date end);
 
 }

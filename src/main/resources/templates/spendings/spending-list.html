@@ -1,0 +1,29 @@
+<div ng-controller="SpendingListCtrl as vm">
+
+    <table>
+        <thead>
+            <tr>ID</tr>
+            <tr>Title</tr>
+            <tr>Price</tr>
+            <tr>Currency</tr>
+            <tr>Date</tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="record in vm.pagedRecords.items">
+                <td>{{record.id}}</td>
+                <td>{{record.title}}</td>
+                <td>{{record.price}}</td>
+                <td>{{record.currency}}</td>
+                <td>{{record.date}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <pagination total="vm.pagedRecords.total"
+                         size-items="[10, 25, 50, 100]"
+                         default-page-number="vm.pagedRecords.pageNumber"
+                         default-page-size="vm.pagedRecords.pageSize"
+                         on-change="vm.pagedRecords.onChange(params)"></pagination>
+    </div>
+
+</div>

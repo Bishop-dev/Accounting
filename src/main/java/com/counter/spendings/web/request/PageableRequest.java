@@ -1,16 +1,24 @@
 package com.counter.spendings.web.request;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.Date;
 
 /**
  * Created by Sashko on 8/28/16.
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PageableRequest {
+
+    private static final String DATETIME_FORMAT = "yyyy-MM-dd";
 
     private int pageSize;
     private int total;
     private int pageNumber;
+    @JsonFormat(shape = JsonFormat.Shape.NUMBER, pattern = DATETIME_FORMAT)
     private Date start;
+    @JsonFormat(shape = JsonFormat.Shape.NUMBER, pattern = DATETIME_FORMAT)
     private Date finish;
     private boolean asc;
     private String sortField;

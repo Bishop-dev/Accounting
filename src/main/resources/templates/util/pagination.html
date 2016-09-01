@@ -1,0 +1,42 @@
+<div ng-if="total > minPageSize" class="pagination-holder relative">
+
+    <div class="pull-left pagination-item" ng-if="getPagesCount() > 1">
+        <span>Page </span>
+        <input ng-init="pageNumberInputValue = pageNumber" type="text" class="form-control page-number-input"
+               ng-model="pageNumberInputValue"
+               asms-on-enter="setPageNumber(pageNumberInputValue); pageNumberInputValue = pageNumber;"
+               ng-blur="pageNumberInputValue = pageNumber;">
+        <span> of <span ng-bind="getPagesCount()"></span></span>
+    </div>
+
+    <div class="pull-right pagination-item" ng-init="pageSizeSelectValue = pageSize">
+        <span>Page size </span>
+        <select ui-select2="{'minimumResultsForSearch': -1}"
+                ng-model="pageSizeSelectValue" ng-change="setPageSize(pageSizeSelectValue)">
+
+            <option ng-repeat="sizeItem in sizeItems"
+                    value="{{ sizeItem }}"
+                    ng-selected="pageSize == sizeItem">
+                {{ sizeItem }}
+            </option>
+        </select>
+    </div>
+
+    <div class="pagination-item pagination-buttons" ng-if="getPagesCount() > 1">
+
+        <nav aria-label="pagination-area" class="text-center">
+            <ul class="pagination">
+                <li ng-if="pageNumber > 1"><a ng-click="back()" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+
+                <li ng-repeat="n in getNavigatedPages()"
+                    ng-class="{active: n == pageNumber}">
+                    <a ng-click="setPageNumber(n)" ng-bind="n"></a>
+                </li>
+
+                <li ng-if="pageNumber < getPagesCount()"><a ng-click="next()" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+            </ul>
+        </nav>
+
+    </div>
+
+</div>

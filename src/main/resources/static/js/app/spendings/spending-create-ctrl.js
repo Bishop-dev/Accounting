@@ -17,8 +17,11 @@
 
         function save() {
             console.log(vm.spending);
+            if (!vm.spending || !vm.spending.title || !vm.spending.price) {
+                return;
+            }
             SpendingsService.saveRecord(vm.spending, function(response) {
-                console.log(response);
+                delete vm.spending;
             })
         }
 
