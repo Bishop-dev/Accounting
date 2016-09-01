@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module("app", ["ngRoute", "ngResource", "app.spendings"])
+        .module("app", ["ngRoute", "ngResource", "app.pagination", "app.spendings"])
         .controller("AppCtrl", [AppCtrl]);
 
     function AppCtrl() {

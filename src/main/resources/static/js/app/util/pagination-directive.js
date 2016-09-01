@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module("app")
+        .module("app.pagination")
         .directive("pagination", [pagination]);
 
     function pagination(){
