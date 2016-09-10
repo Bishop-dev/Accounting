@@ -27,7 +27,8 @@ public class SavingRecordController {
 
     @RequestMapping(value = "/total", method = RequestMethod.GET)
     public SimpleResponse<Collection<SavingRecordApi>> getTotalSavings() {
-        return SimpleResponse.create(savingRecordService.total());
+        final long userId = 1;
+        return SimpleResponse.create(savingRecordService.total(userId));
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)

@@ -28,8 +28,8 @@ public class SavingRecordServiceImpl implements SavingRecordService {
     private SavingRecordRepository savingRecordRepository;
 
     @Override
-    public List<SavingRecordApi> total() {
-        final List<SavingRecordDal> dalList = savingRecordRepository.total();
+    public List<SavingRecordApi> total(final long userId) {
+        final List<SavingRecordDal> dalList = savingRecordRepository.total(userId);
         return DalToApiTransformer.toApi(dalList, DalToApiTransformer::toApi);
     }
 

@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface StatisticsRepository extends CrudRepository<SpendingRecordDal, Long> {
 
-    @Query("select new com.counter.spendings.entity.api.statistics.DailyChartApi(s.date, s.price) from " +
+    @Query("select new com.counter.spendings.entity.api.statistics.DailyChartApi(s.date, SUM(s.price)) from " +
             "com.counter.spendings.entity.dal.SpendingRecordDal s WHERE s.date BETWEEN :start AND :finish GROUP BY date " +
             "ORDER BY date DESC")
     List<DailyChartApi> fetchChart(@Param("start") Date start, @Param("finish") Date finish);

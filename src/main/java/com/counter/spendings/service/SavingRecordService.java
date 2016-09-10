@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface SavingRecordService {
 
-    List<SavingRecordApi> total();
+    List<SavingRecordApi> total(final long userId);
 
     void delete(long id);
 

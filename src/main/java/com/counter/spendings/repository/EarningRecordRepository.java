@@ -2,7 +2,7 @@ package com.counter.spendings.repository;
 
 import com.counter.spendings.entity.dal.EarningRecordDal;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Date;
@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public interface EarningRecordRepository extends CrudRepository<EarningRecordDal, Long> {
 
-    Page<EarningRecordDal> findAllByUserIdAndDateBetweenOrderByDateDesc(PageRequest pageable,
+    Page<EarningRecordDal> findAllByUserIdAndDateBetweenOrderByDateDesc(Pageable pageable,
                                                                         long userId, Date start, Date finish);
 
 }

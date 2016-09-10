@@ -22,7 +22,7 @@ public class SavingRecordDal extends AbstractPersistable<Long> {
     public SavingRecordDal() {
     }
 
-    public SavingRecordDal(final double amount, final String currency, final String type) {
+    public SavingRecordDal(final String currency, final String type, final double amount) {
         this.amount = amount;
         this.currency = currency;
         this.type = type;
