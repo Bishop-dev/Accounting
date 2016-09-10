@@ -27,22 +27,22 @@ public class SpendingRecordServiceImpl implements SpendingRecordService {
     private SpendingRecordRepository spendingRecordRepository;
 
     @Override
-    public PagedResult<SpendingRecordApi> list(PageableRequest request, long userId) {
-        PageRequest pageable = new PageRequest(request.getPageNumber(), request.getPageSize());
-        Page<SpendingRecordDal> pageableResult =
+    public PagedResult<SpendingRecordApi> list(final PageableRequest request, final long userId) {
+        final PageRequest pageable = new PageRequest(request.getPageNumber(), request.getPageSize());
+        final Page<SpendingRecordDal> pageableResult =
                 spendingRecordRepository.findAllByUserIdAndDateBetweenOrderByDateDesc(pageable, userId,
                     request.getStart(), request.getFinish());
         return PageableTransformer.toPagedResult(pageableResult, DalToApiTransformer::toApi);
     }
 
     @Override
-    public SpendingRecordApi save(SpendingRecordApi record) {
-        SpendingRecordDal dal = spendingRecordRepository.save(ApiToDalTransformer.toDal(record));
+    public SpendingRecordApi save(final SpendingRecordApi record) {
+        final SpendingRecordDal dal = spendingRecordRepository.save(ApiToDalTransformer.toDal(record));
         return DalToApiTransformer.toApi(dal);
     }
 
     @Override
-    public void delete(long recordId) {
+    public void delete(final long recordId) {
         spendingRecordRepository.delete(recordId);
     }
 
