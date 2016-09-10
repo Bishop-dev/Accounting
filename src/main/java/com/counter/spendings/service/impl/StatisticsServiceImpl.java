@@ -1,12 +1,11 @@
 package com.counter.spendings.service.impl;
 
-import com.counter.spendings.entity.api.statistics.WeekChartApi;
+import com.counter.spendings.entity.api.statistics.DailyChartApi;
 import com.counter.spendings.repository.StatisticsRepository;
 import com.counter.spendings.service.StatisticsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -21,13 +20,10 @@ public class StatisticsServiceImpl implements StatisticsService {
     private StatisticsRepository statisticsRepository;
 
     @Override
-    public List<WeekChartApi> weekChart() {
-        Date start = calculateMinusOneWeek();
-        Date finish = new Date();
-        List<WeekChartApi> weekChartApis = statisticsRepository.fetchChart(start, finish);
-        if (weekChartApis.size() > 7) {
-            throw new RuntimeException("THE SIZE OF WEEK CHART IS " + weekChartApis.size());
-        }
+    public List<DailyChartApi> weekChart() {
+        final Date start = calculateMinusOneWeek();
+        final Date finish = new Date();
+        final List<DailyChartApi> weekChartApis = statisticsRepository.fetchChart(start, finish);
         return weekChartApis;
     }
 

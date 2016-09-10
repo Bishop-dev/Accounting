@@ -8,12 +8,12 @@ import java.util.Date;
  * Created by Sashko on 9/1/16.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class WeekChartApi {
+public class DailyChartApi {
 
     private Date date;
     private double amount;
 
-    public WeekChartApi(Date date, double amount) {
+    public DailyChartApi(Date date, double amount) {
         this.date = date;
         this.amount = amount;
     }

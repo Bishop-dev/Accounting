@@ -1,6 +1,6 @@
 package com.counter.spendings.service;
 
-import com.counter.spendings.entity.api.statistics.WeekChartApi;
+import com.counter.spendings.entity.api.statistics.DailyChartApi;
 
 import java.util.List;
 
@@ -9,6 +9,6 @@ import java.util.List;
  */
 public interface StatisticsService {
 
-    List<WeekChartApi> weekChart();
+    List<DailyChartApi> weekChart();
 
 }

@@ -1,6 +1,6 @@
 package com.counter.spendings.web.controller;
 
-import com.counter.spendings.entity.api.statistics.WeekChartApi;
+import com.counter.spendings.entity.api.statistics.DailyChartApi;
 import com.counter.spendings.service.StatisticsService;
 import com.counter.spendings.web.response.SimpleResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class StatisticsController {
     private StatisticsService statisticsService;
 
     @RequestMapping(value = "/week", method = RequestMethod.GET)
-    public SimpleResponse<List<WeekChartApi>> weekChart() {
+    public SimpleResponse<List<DailyChartApi>> weekChart() {
         return new SimpleResponse<>(statisticsService.weekChart());
     }
 
