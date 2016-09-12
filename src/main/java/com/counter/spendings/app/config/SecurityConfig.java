@@ -28,12 +28,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/**").permitAll()
-                .antMatchers("/spending/**").permitAll();
+                .antMatchers("/spending/**", "/savings/**").permitAll();
     }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers(HttpMethod.POST, "/spending/save");
+        web.ignoring().antMatchers(HttpMethod.POST, "/spending/save", "/savings/save");
     }
 
     @Autowired

@@ -1,0 +1,51 @@
+<div ng-controller="SavingsCreateCtrl as vmCreate">
+    <div>
+        <div>
+            <label for="savingType">
+                Type (cash, deposit)
+            </label>
+        </div>
+        <div>
+            <input ng-model="vmCreate.saving.type"
+                   id="savingType"
+                   name="savingType"
+                   class="form-control"
+                   type="text"
+                   autocomplete="off"
+                   autofocus="true"/>
+        </div>
+    </div>
+    <div>
+        <div>
+            <label for="savingAmount">
+                Amount
+            </label>
+        </div>
+        <div>
+            <input id="savingAmount" type="number" min="0" ng-model="vmCreate.saving.amount"
+                   name="savingAmount" step="0.01" required>
+        </div>
+    </div>
+    <div>
+        <div>
+            <label for="savingCurrency">
+                Currency
+            </label>
+        </div>
+        <div>
+            <input id="savingCurrency" type="text" min="0" ng-model="vmCreate.saving.currency"
+                   name="savingCurrency" required>
+        </div>
+    </div>
+    <div>
+        <div>
+            <label for="savingDate">
+                Date
+            </label>
+        </div>
+        <div>
+            <input id="savingDate" ng-model="vmCreate.saving.date" name="savingDate">
+        </div>
+    </div>
+    <button type="button" ng-click="vmCreate.save()">Save</button>
+</div>

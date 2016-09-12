@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Collection;
 
@@ -20,6 +21,7 @@ import java.util.Collection;
  */
 @Controller
 @RequestMapping("/savings")
+@ResponseBody
 public class SavingRecordController {
 
     @Autowired
@@ -49,6 +51,7 @@ public class SavingRecordController {
 
     @RequestMapping(value = "/save", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public SimpleResponse<SavingRecordApi> save(@RequestBody SavingRecordApi api) {
+        api.setUserId(1L);
         return SimpleResponse.create(savingRecordService.save(api));
     }
 

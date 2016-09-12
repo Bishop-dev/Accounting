@@ -1,0 +1,29 @@
+<div ng-controller="SavingListCtrl as vm">
+
+    <table>
+        <thead>
+        <tr>ID</tr>
+        <tr>Date</tr>
+        <tr>Amount</tr>
+        <tr>Currency</tr>
+        <tr>Type</tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="record in vm.pagedRecords.items">
+            <td>{{record.id}}</td>
+            <td>{{record.date | date: "dd MMM yyyy"}}</td>
+            <td>{{record.amount}}</td>
+            <td>{{record.currency}}</td>
+            <td>{{record.type}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <pagination total="vm.pagedRecords.total"
+                    size-items="[10, 25, 50, 100]"
+                    default-page-number="vm.pagedRecords.pageNumber"
+                    default-page-size="vm.pagedRecords.pageSize"
+                    on-change="vm.pagedRecords.onChange(params)"></pagination>
+    </div>
+
+</div>
