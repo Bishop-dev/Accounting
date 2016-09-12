@@ -1,12 +1,14 @@
-<div ng-controller="SpendingListCtrl as vm">
+<div ng-controller="SpendingListCtrl as vm" class="container">
 
-    <table>
+    <table class="table table-striped">
         <thead>
-            <tr>ID</tr>
-            <tr>Title</tr>
-            <tr>Price</tr>
-            <tr>Currency</tr>
-            <tr>Date</tr>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Currency</th>
+                <th>Date</th>
+            </tr>
         </thead>
         <tbody>
             <tr ng-repeat="record in vm.pagedRecords.items">

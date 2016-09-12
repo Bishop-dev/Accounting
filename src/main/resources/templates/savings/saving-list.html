@@ -1,12 +1,14 @@
-<div ng-controller="SavingListCtrl as vm">
+<div class="container" ng-controller="SavingListCtrl as vm">
 
-    <table>
+    <table class="table table-stripped">
         <thead>
-        <tr>ID</tr>
-        <tr>Date</tr>
-        <tr>Amount</tr>
-        <tr>Currency</tr>
-        <tr>Type</tr>
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Currency</th>
+                <th>Type</th>
+            </tr>
         </thead>
         <tbody>
         <tr ng-repeat="record in vm.pagedRecords.items">
